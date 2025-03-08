@@ -1,0 +1,11 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/lib/jvm/temurin-8-jdk-amd64"
+        }
+    ],
+    //"java.jdt.ls.java.home": "/usr/lib/jvm/temurin-8-jdk-amd64",
+    "java.import.gradle.java.home": "/usr/lib/jvm/temurin-8-jdk-amd64"
+}
