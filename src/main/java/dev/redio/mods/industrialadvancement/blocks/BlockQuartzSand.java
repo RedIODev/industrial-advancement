@@ -11,7 +11,7 @@ import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class BlockSilicon extends BlockFalling {
+public class BlockQuartzSand extends BlockFalling {
 
     private static class MaterialSilicon extends Material {
         public MaterialSilicon() {
@@ -20,15 +20,17 @@ public class BlockSilicon extends BlockFalling {
         }
     }
 
-    public BlockSilicon() {
+    public BlockQuartzSand() {
         super(new MaterialSilicon());
-        this.setBlockName("silicon");
-        this.setBlockTextureName(IndustrialAdvancement.MODID + ":silicon");
+        this.setBlockName("quartz_sand");
+        this.setBlockTextureName(IndustrialAdvancement.MODID + ":quartz_sand");
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setHardness(0.7F);
         this.setHarvestLevel("shovel",2);
         this.setStepSound(Block.soundTypeSand);
     }
+
+
 
     //set block entity drop to false
     protected void func_149829_a(EntityFallingBlock fallingBlock) {

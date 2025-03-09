@@ -10,7 +10,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenSand;
 
-public class SiliconWorldGenerator implements IWorldGenerator {
+public class QuartzSandWorldGenerator implements IWorldGenerator {
     private static final int CHANCE = 10;
     private static final int MIN_HEIGHT = 50;
     private static final int MAX_HEIGHT = 70;
@@ -21,7 +21,7 @@ public class SiliconWorldGenerator implements IWorldGenerator {
         if (world.provider.dimensionId != 0) return;
         int vainsize = MIN_SIZE + random.nextInt(MAX_SIZE-MIN_SIZE);
         int heightRange = MAX_HEIGHT-MIN_HEIGHT;
-        WorldGenMinable gen = new WorldGenMinable(Blocks.silicon, vainsize, net.minecraft.init.Blocks.sand);
+        WorldGenMinable gen = new WorldGenMinable(Blocks.quartz_sand, vainsize, net.minecraft.init.Blocks.sand);
         for (int i = 0; i < CHANCE; i++) {
             int x = chunkX*16+ random.nextInt(16);
             int y = random.nextInt(heightRange)+MIN_HEIGHT;

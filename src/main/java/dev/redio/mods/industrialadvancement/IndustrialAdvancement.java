@@ -10,7 +10,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import dev.redio.mods.industrialadvancement.Blocks;
 import dev.redio.mods.industrialadvancement.CommonProxy;
 import dev.redio.mods.industrialadvancement.IndustrialAdvancement;
-import dev.redio.mods.industrialadvancement.generation.SiliconWorldGenerator;
+import dev.redio.mods.industrialadvancement.generation.QuartzSandWorldGenerator;
 
 @Mod(modid = IndustrialAdvancement.MODID, version = IndustrialAdvancement.VERSION, name = "Industrial Advancement")
 public class IndustrialAdvancement {
@@ -24,7 +24,7 @@ public class IndustrialAdvancement {
         serverSide = "dev.redio.mods.industrialadvancement.CommonProxy")
     public static CommonProxy proxy;
 
-    public static SiliconWorldGenerator worldGenerator = new SiliconWorldGenerator();
+    public static QuartzSandWorldGenerator worldGenerator = new QuartzSandWorldGenerator();
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {

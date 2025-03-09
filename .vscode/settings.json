@@ -7,5 +7,11 @@
         }
     ],
     //"java.jdt.ls.java.home": "/usr/lib/jvm/temurin-8-jdk-amd64",
-    "java.import.gradle.java.home": "/usr/lib/jvm/temurin-8-jdk-amd64"
+    "java.import.gradle.java.home": "/usr/lib/jvm/temurin-8-jdk-amd64",
+    "java.signatureHelp.enabled": true,
+    "java.import.gradle.enabled": true,
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-1.23.0-openjdk-amd64",
+    "java.jdt.ls.javac.enabled": "on"
+    // "java.import.gradle.version": "4.10.2",
+    // "java.import.gradle.wrapper.enabled": true,
 }
