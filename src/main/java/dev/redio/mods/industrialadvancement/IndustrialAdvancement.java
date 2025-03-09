@@ -29,6 +29,7 @@ public class IndustrialAdvancement {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         Blocks.registerBlocks();
+        Items.registerItems();
     }
 
     @EventHandler
