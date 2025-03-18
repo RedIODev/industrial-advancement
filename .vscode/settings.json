@@ -12,7 +12,8 @@
     "java.import.gradle.enabled": true,
     "java.jdt.ls.java.home": "/usr/lib/jvm/java-1.23.0-openjdk-amd64",
     "java.jdt.ls.javac.enabled": "on",
-    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable"
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
+    "java.configuration.updateBuildConfiguration": "interactive",
     // "java.import.gradle.version": "4.10.2",
     // "java.import.gradle.wrapper.enabled": true,
 }
