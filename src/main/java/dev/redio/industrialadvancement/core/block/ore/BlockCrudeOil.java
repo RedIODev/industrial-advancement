@@ -1,28 +1,30 @@
-package dev.redio.mods.industrialadvancement.blocks;
+package dev.redio.industrialadvancement.core.block.ore;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dev.redio.mods.industrialadvancement.IndustrialAdvancement;
+import dev.redio.industrialadvancement.core.registry.RegistryFluid;
+import dev.redio.industrialadvancement.core.registry.RegistryGame;
+import dev.redio.industrialadvancement.core.util.ItemUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
-import net.minecraftforge.fluids.Fluid;
 
-public class BlockCrudOil extends BlockFluidClassic {
+public class BlockCrudeOil extends BlockFluidClassic {
+
+    public static final String NAME = "crude_oil";
 
     @SideOnly(Side.CLIENT)
     private IIcon stillIcon;
     @SideOnly(Side.CLIENT)
     private IIcon flowingIcon;
 
-    public BlockCrudOil(Fluid fluid, Material material) {
-        super(fluid, material);
-        // setCreativeTab(CreativeTabs.tabMisc);
-        setBlockName("crud_oil_source");
+    public BlockCrudeOil() {
+        super(RegistryFluid.crude_oil, Material.water);
+        setBlockName(NAME);
+        
     }
 
     @Override
@@ -32,8 +34,9 @@ public class BlockCrudOil extends BlockFluidClassic {
 
     @Override
     public void registerBlockIcons(IIconRegister register) {
-        stillIcon = register.registerIcon(IndustrialAdvancement.MODID + ":crud_oil_still");
-        flowingIcon = register.registerIcon(IndustrialAdvancement.MODID + ":crud_oil_flowing");
+        String textureName = ItemUtil.textureName(NAME);
+        stillIcon = register.registerIcon(textureName + "_still");
+        flowingIcon = register.registerIcon(textureName + "_flow");
     }
 
     @Override

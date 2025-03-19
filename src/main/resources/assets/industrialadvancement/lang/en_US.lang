@@ -1,1 +1,12 @@
 tile.quartz_sand.name=Quartz Sand
+tile.crude_oil.name=Crude Oil
+
+item.silicon.name=Silicon
+item.silicon_ingot.name=Silicon Ingot
+item.silicon_dust.name=Silicon Dust
+item.silicon_graphite_blend.name=Silicon Graphite Blend
+item.graphite_dust.name=Graphite Dust
+
+item.bucket_crude_oil.name=Crude Oil Bucket
+
+itemGroup.base_tab=Industrial Advancement

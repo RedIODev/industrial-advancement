@@ -1,21 +1,20 @@
-package dev.redio.mods.industrialadvancement.generation;
+package dev.redio.industrialadvancement.core.generator;
 
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import dev.redio.mods.industrialadvancement.Blocks;
-import dev.redio.mods.industrialadvancement.IndustrialAdvancement;
+import dev.redio.industrialadvancement.core.registry.RegistryBlock;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenSand;
 
-public class QuartzSandWorldGenerator implements IWorldGenerator {
-    private static final int CHANCE = 10;
-    private static final int MIN_HEIGHT = 50;
-    private static final int MAX_HEIGHT = 70;
-    private static final int MIN_SIZE = 5;
-    private static final int MAX_SIZE = 10;
+public class GeneratorQuartzSand implements IWorldGenerator {
+    public static final int CHANCE = 8;
+    public static final int MIN_HEIGHT = 50;
+    public static final int MAX_HEIGHT = 70;
+    public static final int MIN_SIZE = 8;
+    public static final int MAX_SIZE = 20;
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
             IChunkProvider chunkProvider) {
@@ -23,7 +22,7 @@ public class QuartzSandWorldGenerator implements IWorldGenerator {
             return;
         int vainsize = MIN_SIZE + random.nextInt(MAX_SIZE - MIN_SIZE);
         int heightRange = MAX_HEIGHT - MIN_HEIGHT;
-        WorldGenMinable gen = new WorldGenMinable(Blocks.quartz_sand, vainsize, net.minecraft.init.Blocks.sand);
+        WorldGenMinable gen = new WorldGenMinable(RegistryBlock.quartz_sand, vainsize, Blocks.sand);
         for (int i = 0; i < CHANCE; i++) {
             int x = chunkX * 16 + random.nextInt(16);
             int y = random.nextInt(heightRange) + MIN_HEIGHT;

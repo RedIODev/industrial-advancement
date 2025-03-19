@@ -1,10 +1,8 @@
-package dev.redio.mods.industrialadvancement;
+package dev.redio.industrialadvancement.core.util;
 
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.google.common.eventbus.Subscribe;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
@@ -13,13 +11,19 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 public class BucketHandler {
 
-    public static BucketHandler INSTANCE = new BucketHandler();
+    private static BucketHandler INSTANCE;
     public Map<Block, Item> buckets = new HashMap<Block, Item>();
 
+    public static BucketHandler getInstance() {
+        return (INSTANCE == null) ? (INSTANCE = new BucketHandler()) : INSTANCE; 
+    }
+
     private BucketHandler() {
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @SubscribeEvent
