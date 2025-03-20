@@ -1,20 +1,20 @@
 package dev.redio.industrialadvancement.core.item.ore;
 
-import dev.redio.industrialadvancement.core.registry.RegisterCreativeTab;
+import dev.redio.industrialadvancement.core.registry.RegistryCreativeTab;
 import dev.redio.industrialadvancement.core.registry.RegistryBlock;
-import dev.redio.industrialadvancement.core.util.Craftable;
+import dev.redio.industrialadvancement.core.util.AddsRecipe;
 import dev.redio.industrialadvancement.core.util.DefaultTextureName;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.Recipes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemSiliconDust extends Item implements Craftable, DefaultTextureName {
+public class ItemSiliconDust extends Item implements AddsRecipe, DefaultTextureName {
 
     public static final String NAME = "silicon_dust";
 
     public ItemSiliconDust() {
-        setCreativeTab(RegisterCreativeTab.base_tab);
+        setCreativeTab(RegistryCreativeTab.base_tab);
         setUnlocalizedName(NAME);
     }
 

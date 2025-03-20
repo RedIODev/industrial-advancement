@@ -1,5 +1,5 @@
 package dev.redio.industrialadvancement.core.util;
 
-public interface Craftable {
+public interface AddsRecipe {
     void registerRecipes();
 }

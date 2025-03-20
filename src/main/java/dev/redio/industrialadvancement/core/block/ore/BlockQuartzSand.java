@@ -1,6 +1,6 @@
 package dev.redio.industrialadvancement.core.block.ore;
 
-import dev.redio.industrialadvancement.core.registry.RegisterCreativeTab;
+import dev.redio.industrialadvancement.core.registry.RegistryCreativeTab;
 import dev.redio.industrialadvancement.core.util.DefaultTextureName;
 import dev.redio.industrialadvancement.core.util.EasyMaterial;
 import net.minecraft.block.Block;
@@ -20,7 +20,7 @@ public class BlockQuartzSand extends BlockFalling implements DefaultTextureName 
     public BlockQuartzSand() {
         super(MATERIAL);
         this.setBlockName(NAME);
-        setCreativeTab(RegisterCreativeTab.base_tab);
+        setCreativeTab(RegistryCreativeTab.base_tab);
         this.setHardness(HARDNESS);
         this.setHarvestLevel(TOOL, MINING_LEVEL);
         this.setStepSound(Block.soundTypeSand);

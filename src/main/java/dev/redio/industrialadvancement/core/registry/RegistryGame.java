@@ -31,10 +31,11 @@ public class RegistryGame {
     public void preInit(FMLPreInitializationEvent event) {
 
         // order sensitive creative tabs > fluids > blocks > items
-        RegisterCreativeTab.registerCreativeTabs();
+        RegistryCreativeTab.registerCreativeTabs();
         RegistryFluid.registerFluids();
         RegistryBlock.registerBlocks();
         RegistryItem.registerItems();
+        proxy.registerTileEntities();
         loadNerAiAddonModule();
     }
 

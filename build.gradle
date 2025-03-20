@@ -28,6 +28,11 @@ minecraft {
     runDir = "eclipse"
 }
 
+java {
+    sourceCompatibility = "VERSION_1_8"
+    targetCompatibility = "VERSION_1_8"
+}
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

@@ -1,6 +1,6 @@
 package dev.redio.industrialadvancement.core.item.tool;
 
-import dev.redio.industrialadvancement.core.registry.RegisterCreativeTab;
+import dev.redio.industrialadvancement.core.registry.RegistryCreativeTab;
 import dev.redio.industrialadvancement.core.registry.RegistryBlock;
 import dev.redio.industrialadvancement.core.registry.RegistryFluid;
 import dev.redio.industrialadvancement.core.util.BucketHandler;
@@ -17,7 +17,7 @@ public class ItemCrudeOilBucket extends ItemBucket implements DefaultTextureName
     public ItemCrudeOilBucket() {
         super(RegistryBlock.crude_oil_block);
         setContainerItem(Items.bucket);
-        setCreativeTab(RegisterCreativeTab.base_tab);
+        setCreativeTab(RegistryCreativeTab.base_tab);
         setUnlocalizedName(NAME);
         BucketHandler.getInstance().buckets.put(RegistryBlock.crude_oil_block, this);
 

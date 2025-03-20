@@ -7,7 +7,7 @@ import dev.redio.industrialadvancement.core.item.ore.ItemSilicon;
 import dev.redio.industrialadvancement.core.util.EasyCreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class RegisterCreativeTab {
+public class RegistryCreativeTab {
     public static CreativeTabs base_tab;
 
     public static final List<CreativeTabs> tabs = new ArrayList<CreativeTabs>();
