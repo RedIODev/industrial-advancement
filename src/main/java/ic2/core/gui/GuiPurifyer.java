@@ -1,4 +1,5 @@
-package dev.redio.industrialadvancement.core.gui;
+package ic2.core.gui;
+// package dev.redio.industrialadvancement.core.gui;
 
 import org.lwjgl.opengl.GL11;
 
@@ -7,6 +8,7 @@ import ic2.core.block.machine.container.ContainerElectricMachine;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 public class GuiPurifyer extends GuiContainer {
     public ContainerElectricMachine container;
@@ -14,6 +16,12 @@ public class GuiPurifyer extends GuiContainer {
         super(container);
         this.container = container;
     }
+
+    protected void drawGuiContainerForegroundLayer(int par1, int par2) {
+        String name = container.tileEntity.getInventoryName();
+        this.fontRendererObj.drawString(name, (this.xSize - this.fontRendererObj.getStringWidth(name)) / 2, 6, 4210752);
+        this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {

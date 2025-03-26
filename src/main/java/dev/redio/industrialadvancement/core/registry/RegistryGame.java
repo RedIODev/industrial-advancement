@@ -9,6 +9,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import dev.redio.industrialadvancement.core.proxy.ProxyCommon;
 import dev.redio.industrialadvancement.core.registry.RegistryGame;
+import dev.redio.industrialadvancement.core.util.TierItem;
 import ic2.core.IC2;
 import ic2.core.ISubModul;
 
@@ -30,13 +31,14 @@ public class RegistryGame {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 
-        // order sensitive creative tabs > fluids > blocks > items
+        // order sensitive creative tabs > fluids > blocks > items > tile >
         RegistryCreativeTab.registerCreativeTabs();
         RegistryFluid.registerFluids();
         RegistryBlock.registerBlocks();
         RegistryItem.registerItems();
         proxy.registerTileEntities();
-        loadNerAiAddonModule();
+        loadSubModule(new dev.redio.industrialadvancement.nerIntegration.SubModul());
+        loadSubModule(new dev.redio.industrialadvancement.neiIntegration.SubModul());
     }
 
     @EventHandler
@@ -49,9 +51,7 @@ public class RegistryGame {
         
     }
 
-    private void loadNerAiAddonModule() {
-        ISubModul plugin = new dev.redio.industrialadvancement.nerIntegration.SubModul();
-
+    private void loadSubModule(ISubModul plugin) {
         if (Boolean.parseBoolean(IC2.config.get("modules", plugin.getConfigName(), true).getString()) && plugin.canLoad() && plugin.supportsSide(FMLCommonHandler.instance().getEffectiveSide())) {
             IC2.modul.put(plugin.getModulName(), plugin);
         }

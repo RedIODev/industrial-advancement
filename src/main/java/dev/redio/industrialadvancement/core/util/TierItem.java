@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.item.ItemStack;
 
 public interface TierItem {
-    static List<TierItem> TIER_ITEMS = new ArrayList<TierItem>();
+    static List<TierItem> TIER_ITEMS = new ArrayList<>();
 
     public static int getGlobalMaxTier() {
         int maxTier = 0;

@@ -109,13 +109,13 @@ public class ItemFilterMeshUpgrade extends Item implements IMachineUpgradeItem {
 
     @Override
     public void onProcessEnd(ItemStack upgrade, IMachine machine, List<ItemStack> results) {
-        if (!(machine instanceof TileEntityPurifyer)) return;
-        for (ItemStack stack : results) {
-            if (stack.getItem() instanceof TierItem) {
-                TierItem item = (TierItem) stack.getItem();
-                item.setTier(stack, Math.max(item.getTier(stack), upgrade.getItemDamage()+2));
-            }
-        }
+        // if (!(machine instanceof TileEntityPurifyer)) return;
+        // for (ItemStack stack : results) {
+        //     if (stack.getItem() instanceof TierItem) {
+        //         TierItem item = (TierItem) stack.getItem();
+        //         item.setTier(stack, Math.max(item.getTier(stack), upgrade.getItemDamage()+2));
+        //     }
+        // }
     }
 
     @Override

@@ -11,10 +11,8 @@ import net.minecraft.item.Item;
 public class BlockDrenchedStone extends Block implements DefaultTextureName {
 
     public static final String NAME = "drenched_stone";
-    private static final float HARDNESS = 1.0F;
+    private static final float HARDNESS = 3.0F;
     private static final float RESISTANCE = 9.0F;
-    private static final String TOOL = "pickaxe";
-    private static final int MINING_LEVEL = 2;
 
     public BlockDrenchedStone() {
         super(Material.rock);
@@ -23,7 +21,6 @@ public class BlockDrenchedStone extends Block implements DefaultTextureName {
         setHardness(HARDNESS);
         setStepSound(Block.soundTypePiston);
         setResistance(RESISTANCE);
-        setHarvestLevel(TOOL, MINING_LEVEL);
     }
 
     @Override

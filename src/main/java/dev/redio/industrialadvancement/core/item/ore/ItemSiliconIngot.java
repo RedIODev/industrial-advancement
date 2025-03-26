@@ -8,8 +8,10 @@ import dev.redio.industrialadvancement.core.registry.RegistryRecipe;
 import dev.redio.industrialadvancement.core.util.AddsRecipe;
 import dev.redio.industrialadvancement.core.util.DefaultTextureName;
 import dev.redio.industrialadvancement.core.util.TierItem;
+import ic2.api.recipe.IMachineRecipeManager;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.Recipes;
+import ic2.core.BasicMachineRecipeManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -17,13 +19,12 @@ import net.minecraft.item.ItemStack;
 
 public class ItemSiliconIngot extends Item implements AddsRecipe, DefaultTextureName, TierItem {
     public static final String NAME = "silicon_ingot";
-    public static final int STEPS_PER_TIER = 25;
     public static final int MAX_TIER = 4;
 
     public ItemSiliconIngot() {
         setCreativeTab(RegistryCreativeTab.base_tab);
         setUnlocalizedName(NAME);
-        setMaxDamage(MAX_TIER*STEPS_PER_TIER);
+        setHasSubtypes(true);
         setMaxStackSize(16);
     }
 
@@ -33,9 +34,14 @@ public class ItemSiliconIngot extends Item implements AddsRecipe, DefaultTexture
         setDamage(result, getMaxDamage());
         Recipes.compressor.addRecipe(new RecipeInputItemStack(new ItemStack(RegistryItem.silicon)),
         null, result);
-        ItemStack result2 = new ItemStack(this);
-        setTier(result2, 1);
-        //RegistryRecipe.purifier.addRecipe(new RecipeInputItemStack(new ItemStack(this, 1, getMaxDamage())), null, result2);
+
+        for (int i = 0; i < MAX_TIER; i++) {
+            RegistryRecipe.purifier.putIfAbsent(i, new BasicMachineRecipeManager());
+            IMachineRecipeManager manager = RegistryRecipe.purifier.get(i);
+            for (int j = 0; j <= i; j++) {
+                manager.addRecipe(new RecipeInputItemStack(new ItemStack(this, 1, j)), null, new ItemStack(this, 1, i+1));
+            }
+        }
     }
 
     @Override
@@ -45,12 +51,12 @@ public class ItemSiliconIngot extends Item implements AddsRecipe, DefaultTexture
 
     @Override
     public int getTier(ItemStack stack) {
-        return (int)((getMaxDamage() - stack.getItemDamage())/STEPS_PER_TIER);
+        return stack.getItemDamage();
     }
 
     @Override
     public void setTier(ItemStack stack, int tier) {
-        stack.setItemDamage(getMaxDamage() - tier*STEPS_PER_TIER);
+        stack.setItemDamage(tier);
     }
 
     @Override
@@ -60,8 +66,9 @@ public class ItemSiliconIngot extends Item implements AddsRecipe, DefaultTexture
     
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List itemList) {
-        itemList.add(new ItemStack(this, 1, getMaxDamage()));
-        itemList.add(new ItemStack(this, 1));
+        for (int i = 0; i < MAX_TIER+1; i++) {
+            itemList.add(new ItemStack(this, 1, i));
+        }
     }
 
     

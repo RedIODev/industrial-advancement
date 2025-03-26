@@ -1,11 +1,25 @@
 tile.quartz_sand.name=Quartz Sand
 tile.crude_oil.name=Crude Oil
+tile.drenched_stone.name=Drenched Stone
+tile.depleted_stone.name=Depleted Stone
+
+tile.purifyer.name=Purifyer
+tile.purifyer_active.name=Purifyer
 
 item.silicon.name=Silicon
 item.silicon_ingot.name=Silicon Ingot
 item.silicon_dust.name=Silicon Dust
 item.silicon_graphite_blend.name=Silicon Graphite Blend
 item.graphite_dust.name=Graphite Dust
+
+item.rocky_oil_cell.name=Rocky Oil Cell
+item.crude_oil_cell.name=Crude Oil Cell
+
+item.filter_mesh_upgrade_tier_2.name=Filter Mesh Upgrade Tier 2
+item.filter_mesh_upgrade_tier_3.name=Filter Mesh Upgrade Tier 3
+item.filter_mesh_upgrade_tier_4.name=Filter Mesh Upgrade Tier 4
+
+
 
 item.bucket_crude_oil.name=Crude Oil Bucket
 

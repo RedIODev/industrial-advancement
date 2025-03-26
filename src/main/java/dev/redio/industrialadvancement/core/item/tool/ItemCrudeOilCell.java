@@ -4,11 +4,13 @@ import dev.redio.industrialadvancement.core.registry.RegistryBlock;
 import dev.redio.industrialadvancement.core.registry.RegistryCreativeTab;
 import dev.redio.industrialadvancement.core.registry.RegistryFluid;
 import dev.redio.industrialadvancement.core.registry.RegistryItem;
+import dev.redio.industrialadvancement.core.registry.RegistryRecipe;
 import dev.redio.industrialadvancement.core.util.BucketHandler;
 import dev.redio.industrialadvancement.core.util.AddsRecipe;
 import dev.redio.industrialadvancement.core.util.DefaultTextureName;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.Recipes;
+import ic2.core.BasicMachineRecipeManager;
 import ic2.core.Ic2Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;
@@ -28,8 +30,11 @@ public class ItemCrudeOilCell extends Item implements AddsRecipe, DefaultTexture
 
     @Override
     public void registerRecipes() {
-        Recipes.extractor.addRecipe(new RecipeInputItemStack(new ItemStack(RegistryItem.rockyOilCell)),
-        null, new ItemStack(this), Ic2Items.scrap);
+        RegistryRecipe.purifier.putIfAbsent(2, new BasicMachineRecipeManager());
+        RegistryRecipe.purifier.get(2).addRecipe(new RecipeInputItemStack(new ItemStack(RegistryItem.rockyOilCell)),
+        null, new ItemStack(this));
+        // Recipes.extractor.addRecipe(new RecipeInputItemStack(new ItemStack(RegistryItem.rockyOilCell)),
+        // null, new ItemStack(this), Ic2Items.scrap);
     }
     
 }
